@@ -1,0 +1,465 @@
+$main-color: hsl(177, 96%, 9%);
+$second-color: hsl(178, 95%, 18%);
+$third-color: hsl(46, 8%, 30%);
+
+$main-font: "Poppins", sans-serif;
+
+@mixin media($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+// Start Body Things
+
+body {
+  font-family: $main-font;
+  background: $main-color;
+  color: white;
+  padding: 0.75rem;
+  width: 100%;
+  overflow-x: hidden;
+  @include media(800px) {
+    padding: 0;
+  }
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  transition: 0.6s;
+  &.sticky {
+    background-color: rgba($third-color, 0.9);
+    border-radius: 0 0 45px 45px;
+    padding-block: 0.35rem;
+  }
+
+  .humb {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 999;
+    .bar {
+      width: 100%;
+      background-color: white;
+      height: 2px;
+      margin-block: 8px;
+      transition: 0.5s transform ease-out;
+    }
+    &.change {
+      .bar:nth-child(1) {
+        transform: rotate(44deg) translate3d(10px, 20px, 0);
+      }
+      .bar:nth-child(2) {
+        transform: scale(0);
+        opacity: 0;
+      }
+      .bar:nth-child(3) {
+        transform: rotate(-44deg);
+      }
+    }
+  }
+  h1 {
+    a {
+      color: white;
+      span {
+        color: $second-color;
+      }
+    }
+  }
+  .side-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 9;
+    background-color: $main-color;
+    display: flex;
+    justify-content: center;
+    ul {
+      display: flex;
+      flex-direction: column;
+      height: 70%;
+      justify-content: space-around;
+
+      a {
+        color: white;
+        transition: 0.2s;
+        &:hover,
+        &:focus {
+          outline: none;
+          transform: rotate(90deg);
+          color: rgba($third-color, 0.7);
+        }
+      }
+    }
+    left: 200%;
+    transition: 0.5s all ease-out;
+    &.show {
+      left: 0%;
+    }
+    &.show li {
+      animation: element 0.75s ease-out forwards;
+    }
+    @keyframes element {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      75% {
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateX(0%);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+main {
+  padding-top: 14rem;
+  @include media(800px) {
+    padding-top: 8rem;
+  }
+  .text {
+    margin-left: 4rem;
+    h1 {
+      font-size: clamp(3rem, 7vw, 6rem);
+      letter-spacing: 4px;
+    }
+
+    h4 {
+      margin-block: 1rem;
+      letter-spacing: 2px;
+    }
+    h5 {
+      letter-spacing: 1px;
+      font-size: 1rem;
+
+      i {
+        font-size: 1rem;
+        margin-right: 0.5rem;
+        transition: 0.25s all ease-out;
+        cursor: pointer;
+        &:hover {
+          color: $third-color;
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+  h3 {
+    letter-spacing: 3px;
+  }
+  ul {
+    display: flex;
+    margin-left: 4rem;
+    margin-block: 2rem;
+    li {
+      margin: 1rem;
+      cursor: pointer;
+      transition: 0.25s transform ease-out;
+      &:hover {
+        transform: scale(1.2);
+      }
+      i {
+        transition: 0.25s color ease-out;
+        text-shadow: 3px 5px 0px rgba(0, 0, 0, 0 / 50%);
+        &:hover {
+          color: $third-color;
+        }
+      }
+    }
+  }
+  .myimage {
+    display: block;
+    padding-left: 13rem;
+    position: relative;
+    @include media(800px) {
+      display: flex;
+      justify-content: center;
+      padding-left: 2rem;
+    }
+    z-index: -1;
+
+    img {
+      @include media(800px) {
+        width: 400px;
+      }
+      opacity: 0.9;
+
+      width: 220px;
+      border-radius: 50px;
+      border: 4px solid white;
+      box-shadow: 10px 3px 5px 0 rgba(0, 0, 0, 0.7);
+    }
+  }
+}
+.about {
+  margin-block: 3rem;
+  @include media(800px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  h2 {
+    margin: 1.5rem;
+    font-size: clamp(2rem, 5vw, 4rem);
+  }
+  p {
+    line-height: 2;
+    max-width: 75ch;
+    padding: 1rem;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    li {
+      border: 3px solid $second-color;
+      margin: 1rem;
+      padding: 1rem;
+    }
+  }
+}
+
+hr {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: black;
+  top: 117%;
+  z-index: -2;
+  border: none;
+  opacity: 0.7;
+  display: none;
+  @include media(800px) {
+    display: block;
+  }
+}
+
+.image-reflect {
+  width: 220px;
+  border-radius: 50px;
+  transition: 1.25s all cubic-bezier(0.22, -0.17, 0.45, 1.46);
+  transform: translateX(-200%) scale(0) rotate(1turn);
+  opacity: 0;
+  &.show {
+    transform: translateX(0%) scale(1) rotate(0);
+    opacity: 0.8;
+  }
+  border: 2px solid white;
+  position: absolute;
+  left: 10%;
+  top: 73.5%;
+  -webkit-box-reflect: below 3px
+    linear-gradient(transparent, transparent, #000f);
+  display: none;
+  @include media(1028px) {
+    display: block;
+  }
+}
+
+.contact {
+  h1 {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 4rem);
+  }
+
+  .card-group {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    @include media(800px) {
+      flex-direction: row;
+    }
+
+    .card {
+      margin: 1rem;
+      z-index: 8;
+      .adr,
+      .phone,
+      .email {
+        background-color: transparent;
+        border: 2px solid white;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        i {
+          transform: translateY(200%);
+        }
+        &:hover,
+        &:focus {
+          animation: 0.5s radio linear forwards;
+        }
+        cursor: pointer;
+      }
+      @keyframes radio {
+        0% {
+          border-right: 1px solid black;
+        }
+        25% {
+          border-bottom: 1px solid green;
+        }
+        50% {
+          border-left: 1px solid green;
+        }
+        100% {
+          border-top: 1px solid green;
+        }
+      }
+      &.card1 {
+        transform: translateX(-200%) scale(0);
+        transition: 0.5s transform ease-out;
+        &.show {
+          transform: translateX(0%) scale(1);
+        }
+      }
+      &.card2 {
+        transform: scale(0) rotate(140deg);
+        transition: 0.75s transform cubic-bezier(0.35, -0.26, 0.73, 1.36);
+        &.show {
+          transform: scale(1) rotate(0);
+        }
+      }
+      &.card3 {
+        transform: translateX(200%) scale(0);
+        transition: 0.5s transform ease-out;
+        &.show {
+          transform: translateX(0%) scale(1);
+        }
+      }
+
+      .adr:hover,
+      .adr:focus,
+      .phone:hover,
+      .phone:focus,
+      .email:hover,
+      .email:focus {
+        i {
+          transition: 0.25s all ease-out;
+          color: $second-color;
+          font-size: 1.1rem;
+        }
+      }
+
+      width: 300px;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      background-color: rgba($second-color, 0.5);
+      border-radius: 20px;
+    }
+  }
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-block: 2rem;
+  textarea,
+  input:not(:last-child) {
+    min-width: 100%;
+    @include media(800px) {
+      min-width: 50%;
+    }
+
+    height: 40px;
+    margin-block: 1rem;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    font-size: 1rem;
+  }
+
+  input:last-child {
+    width: 100px;
+    height: 30px;
+    background: transparent;
+    border-radius: 20px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border: 2px solid white;
+    margin-top: 1rem;
+  }
+  button {
+    width: 100px;
+  }
+  textarea {
+    min-height: 200px;
+  }
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border: 2px solid $second-color;
+  }
+}
+
+.scroll {
+  position: fixed;
+  right: -100%;
+  top: 85%;
+  width: 100px;
+  height: 100px;
+  background: transparent;
+  z-index: 7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s right cubic-bezier(0.35, -0.26, 0.73, 1.36);
+  i {
+    font-size: 3rem;
+    cursor: pointer;
+    color: rgba(white, 0.7);
+    @include media(800px) {
+      font-size: 4rem;
+    }
+  }
+  &.show {
+    right: 1%;
+  }
+}

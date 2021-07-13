@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style/style.css" />
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <header>
+        <h1>
+          <a href="index.html">M<span>d</span></a>
+        </h1>
+
+        <div class="humb">
+          <div class="bar br1"></div>
+          <div class="bar br2"></div>
+          <div class="bar br3"></div>
+        </div>
+
+        <div class="side-menu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </header>
+      <main>
+        <div class="text">
+          <h1>Medhat N.</h1>
+          <h3>Frontend Web developer</h3>
+          <h4>medhetn1@gmail.com</h4>
+          <h5><i class="fas fa-phone-volume"></i>+999999999</h5>
+        </div>
+
+        <ul>
+          <li><i class="fab fa-instagram"></i></li>
+          <li><i class="fab fa-facebook"></i></li>
+          <li><i class="fab fa-github"></i></li>
+        </ul>
+        <div class="myimage">
+          <img src="./images/pexels-amusan-7204273.jpg" alt="" />
+        </div>
+      </main>
+      <div class="about">
+        <h2>About me</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+          dolor nulla fugit, hic nihil facilis! Explicabo quidem, placeat
+          aperiam mollitia vel maxime voluptatum earum iure excepturi amet
+          aliquid? Odio rem, ducimus ipsum dolor amet pariatur voluptates vitae,
+          illum corporis aut omnis, quis facilis consectetur tempore beatae
+          doloremque doloribus laudantium temporibus?
+        </p>
+        <ul>
+          <li>css</li>
+          <li>javascript</li>
+          <li>reactjs</li>
+          <li>html</li>
+          <li>sass</li>
+        </ul>
+      </div>
+
+      <hr />
+
+      <img
+        src="./images/pexels-amusan-7204273.jpg"
+        class="image-reflect"
+        alt=""
+      />
+
+      <div class="contact" id="#getintouch">
+        <h1>Get in touch</h1>
+        <div class="card-group">
+          <div class="card card1">
+            <div class="adr">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <p>1616 Mandan Road</p>
+          </div>
+          <div class="card card2">
+            <div class="phone">
+              <i class="fas fa-phone"></i>
+            </div>
+            <p>+99999999</p>
+          </div>
+          <div class="card card3">
+            <div class="email">
+              <i class="far fa-envelope"></i>
+            </div>
+            <p>medhetn1@gmail.com</p>
+          </div>
+        </div>
+
+        <form action="" id="usrform">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Name"
+            required
+          />
+          <input
+            type="text"
+            name="company"
+            id="company"
+            placeholder="Company name"
+          />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            required
+          />
+          <textarea
+            name="comment"
+            form="usrform"
+            placeholder="Enter your message .."
+            required
+          ></textarea>
+
+          <input type="submit" value="Send" class="btn btn-submit" />
+        </form>
+      </div>
+      <div class="scroll">
+        <i class="fas fa-arrow-circle-up"></i>
+      </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
